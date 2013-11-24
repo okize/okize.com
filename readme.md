@@ -1,4 +1,4 @@
 okize.com
 =========
 
-okize.com website
+one-page website
