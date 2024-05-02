@@ -2,16 +2,8 @@
   "name": "okize.com",
   "version": "0.0.1",
   "private": true,
-  "author": {
-    "name": "Morgan Wigmanich",
-    "email": "okize123@gmail.com"
-  },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/github/hubot/raw/master/LICENSE"
-    }
-  ],
+  "description": "okize.com website",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
@@ -19,7 +11,17 @@
     "express": "^3.4.7",
     "jade": "^1.11.0"
   },
-  "engines": {
-    "node": "0.12"
-  }
+  "author": {
+    "name": "Morgan Wigmanich",
+    "email": "okize123@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/okize/okize.com/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/okize/okize.com.git"
+  },
+  "homepage": "https://github.com/okize/okize.com#readme"
 }
