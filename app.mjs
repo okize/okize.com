@@ -9,7 +9,6 @@ const app = express();
 
 app.set('port', process.env.PORT || 3333);
 app.set('views', path.join(import.meta.dirname, 'views'));
-app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(express.static(path.join(import.meta.dirname, 'public')));
 
