@@ -1,5 +1,7 @@
 body, html {
+  height: 100%;
   margin: 0;
+  overflow: hidden;
   padding: 0;
 }
 
@@ -14,12 +16,12 @@ body {
 }
 
 p {
-  align-items: center;
-  display: flex;
+  display: grid;
   font-size: 200%;
   font-weight: bold;
-  height: 100vh;
-  justify-content: center;
+  inset: 0;
   margin: 0;
-  width: 100%;
+  overflow: auto;
+  place-items: center;
+  position: fixed;
 }
