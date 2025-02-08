@@ -19,5 +19,5 @@ if (app.get('env') === 'development') {
 app.get('/', index);
 
 http.createServer(app).listen(app.get('port'), function(){
-  console.log('okize.com server listening on port ' + app.get('port'));
+  console.log(`okize.com server listening on port ${app.get('port')} | http://localhost:${app.get('port')}/`);
 });
