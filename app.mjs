@@ -1,23 +1,26 @@
-import express from 'express';
-import http from 'node:http';
-import path from 'node:path';
-import logger from 'morgan';
-import errorHandler from 'errorhandler';
-import { index } from './routes/index.mjs';
+import { Hono } from 'hono';
+import { logger } from 'hono/logger';
+import { serve } from '@hono/node-server';
+import { serveStatic } from '@hono/node-server/serve-static';
+import pages from './routes/pages.mjs';
+import api from './routes/api.mjs';
 
-const app = express();
+const app = new Hono();
 
-app.set('port', process.env.PORT || 3333);
-app.set('views', path.join(import.meta.dirname, 'views'));
-app.use(logger('dev'));
-app.use(express.static(path.join(import.meta.dirname, 'public')));
+app.use(logger());
+app.use('/*', serveStatic({ root: './public' }));
 
-if (app.get('env') === 'development') {
-  app.use(errorHandler());
-}
+app.route('/', pages);
+app.route('/api', api);
 
-app.get('/', index);
+app.onError((err, c) => {
+  const isDev = process.env.NODE_ENV !== 'production';
+  console.error(err);
+  return c.text(isDev ? err.stack : 'Internal Server Error', 500);
+});
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log(`okize.com server listening on port ${app.get('port')} | http://localhost:${app.get('port')}/`);
+const port = Number(process.env.PORT) || 3333;
+
+serve({ fetch: app.fetch, port }, () => {
+  console.log(`okize.com server listening on port ${port} | http://localhost:${port}/`);
 });
