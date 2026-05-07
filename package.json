@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.19.12",
-    "errorhandler": "^1.5.1",
     "express": "^5.1.0",
     "hono": "^4.12.9"
   },
