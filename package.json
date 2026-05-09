@@ -9,7 +9,6 @@
     "start": "node app.mjs"
   },
   "dependencies": {
-    "@hono/node-server": "^1.19.12",
     "hono": "^4.12.9"
   },
   "engines": {
