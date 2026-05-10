@@ -1,15 +1,15 @@
 # base image
-FROM node:24.14.1-alpine
+FROM oven/bun:1.3.11-alpine
 
 # set container working directory
 WORKDIR /app
 
-# copy package.json and package-lock.json to the container
-COPY package*.json ./
+# copy package.json and bun.lock to the container
+COPY package.json bun.lock ./
 
 # install deps
 # this step is separated from copying the rest of the code to leverage Docker cache
-RUN npm install
+RUN bun install --frozen-lockfile
 
 # copy remainder of application code to the container
 COPY . .
