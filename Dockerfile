@@ -18,4 +18,4 @@ COPY . .
 EXPOSE 3333
 
 # command to start app
-CMD ["npm", "run", "start"]
+CMD ["bun", "run", "app.ts"]
